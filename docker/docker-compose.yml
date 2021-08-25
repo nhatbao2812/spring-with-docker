@@ -1,0 +1,24 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    networks:
+      - employee-db
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=company
+      - PGDATA=/var/lib/postgresql/data/pgdata
+  spring-app:
+    image: springio/spring-boot-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - employee-db
+networks:
+  employee-db:
+    driver: bridge
