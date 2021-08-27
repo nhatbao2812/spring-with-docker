@@ -4,7 +4,7 @@ cd docker
 docker-compose up
 localhost:8080/hello/staff
 
-#build gradle
+#build gradle and run
 ./gradlew build && java -jar build/libs/spring-with-docker-0.0.1.jar
 
 # build docker
