@@ -12,6 +12,13 @@ repositories {
     mavenCentral()
 }
 
+task copyJar() {
+    copy {
+        from 'build/libs/' + project.name + '-' + version + '.jar'
+        into "docker"
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'

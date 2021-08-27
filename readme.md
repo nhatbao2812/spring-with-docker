@@ -1,4 +1,10 @@
- #build gradle
+#run project
+cd docker
+./build-docker.sh
+docker-compose up
+localhost:8080/hello/staff
+
+#build gradle
 ./gradlew build && java -jar build/libs/spring-with-docker-0.0.1.jar
 
 # build docker
