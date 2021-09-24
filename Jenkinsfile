@@ -1,4 +1,6 @@
+def dockerLib = new com.mirantis.mk.Docker()
 node {
+    def workspace = common.getWorkspace()
     stage('Clone sources') {
         git url: 'https://github.com/nhatbao2812/spring-with-docker'
     }
