@@ -7,4 +7,11 @@ node {
          sh "./gradlew clean build" 
     }
 
+    stage("build") {
+        common.infoMsg("Building docker image ${IMAGE_NAME}")
+        dockerApp = dockerLib.buildDockerImage(IMAGE_NAME, "", "${workspace}/docker}", imageTagsList[0], buildArgs)
+        if (!dockerApp) {
+            throw new Exception("Docker build image failed")
+        }
+    }
 }
